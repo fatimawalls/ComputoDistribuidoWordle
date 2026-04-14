@@ -1,0 +1,2 @@
+# ComputoDistribuidoWordle
+2p_proyecto_2oParcial
