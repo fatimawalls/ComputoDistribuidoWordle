@@ -1,5 +1,0 @@
-admin|1234|-
-valeria|contra|-...
-otro|1234|-
-heidi|1234|-.
-yo|1234|-.
