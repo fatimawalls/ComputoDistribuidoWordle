@@ -327,20 +327,19 @@ def autenticar(tipo):
 
         if resp["type"] == "auth" and resp["status"] == "ok":
 
-            wins = len(resp["wins"].replace("-", ""))
+            wins = resp["wins"]
             estado.config(text=f"Wins: {wins}")
-
+        
             frame_login.pack_forget()
             frame_game.pack()
-
+        
             threading.Thread(
                 target=hilo_juego,
                 daemon=True
             ).start()
-
+        
         else:
             messagebox.showerror("Error", "Datos incorrectos")
-
     except:
         messagebox.showerror("Error", "No se pudo conectar")
 
