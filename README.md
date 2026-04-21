@@ -7,3 +7,5 @@ The user is supossed to guess a 5 letter word. They are supossed to do it by fil
 The server is programmed using the C language and the client program is being developed using Python.
 
 
+comando para correrlo:
+gcc server_wordle.c palabras_random.c helpers_json.c -o serverW
