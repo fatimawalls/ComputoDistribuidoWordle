@@ -1,0 +1,14 @@
+[
+  {
+    "user": "gat",
+    "pass": "1234",
+    "wins": 3,
+    "words": ["misma","timon","fango"]
+  },
+  {
+    "user": "admin",
+    "pass": "1234",
+    "wins": 2,
+    "words": ["rampa","calvo"]
+  }
+]
