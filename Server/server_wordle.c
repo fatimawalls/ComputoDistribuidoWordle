@@ -26,11 +26,34 @@ void trim_newline(char *str) {
 
 // ---------- WORDLE ----------
 void evaluar(char *secreta, char *intento, char *resultado) {
+
+    int usados[WORD_LEN] = {0}; // letras ya usadas en secreta
+
+    // 1️⃣ PRIMER PASO: marcar correctas (C)
     for (int i = 0; i < WORD_LEN; i++) {
-        if (intento[i] == secreta[i]) resultado[i] = 'C';
-        else if (strchr(secreta, intento[i])) resultado[i] = 'P';
-        else resultado[i] = 'A';
+        if (intento[i] == secreta[i]) {
+            resultado[i] = 'C';
+            usados[i] = 1; // esta letra ya se usó
+        } else {
+            resultado[i] = 'A'; // por defecto
+        }
     }
+
+    // 2️⃣ SEGUNDO PASO: marcar presentes (P)
+    for (int i = 0; i < WORD_LEN; i++) {
+
+        if (resultado[i] == 'C') continue;
+
+        for (int j = 0; j < WORD_LEN; j++) {
+
+            if (!usados[j] && intento[i] == secreta[j]) {
+                resultado[i] = 'P';
+                usados[j] = 1; // marcar como usada
+                break;
+            }
+        }
+    }
+
     resultado[WORD_LEN] = '\0';
 }
 
