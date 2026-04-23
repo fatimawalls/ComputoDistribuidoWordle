@@ -54,6 +54,53 @@ titulo = tk.Label(
 titulo.pack(pady=15)
 
 # ==================================================
+# VENTANAS EMERGENTES (INFO E INSTRUCCIONES)
+# ==================================================
+def abrir_informacion():
+    ventana_info = tk.Toplevel(root)
+    ventana_info.title("Información del Proyecto")
+    ventana_info.geometry("400x300")
+    ventana_info.config(bg="#121213")
+    
+    texto = (
+        "PROYECTO WORDLE ONLINE\n\n"
+        "Desarrollado por:\n"
+        "- Heidi Meiners Muñoz\n"
+        "- Valeria Pérez Maciel\n"
+        "- Fátima Wall Fernández\n\n"
+        "Profesor: Juan Carlos López Pimentel\n"
+        "Materia: Cómputo Distribuido\n"
+        "6to Semestre ISGC"
+    )
+    
+    tk.Label(ventana_info, text=texto, fg="white", bg="#121213", 
+             font=("Arial", 12), justify="center", pady=20).pack()
+    
+    tk.Button(ventana_info, text="Cerrar", command=ventana_info.destroy, bg="#3a3a3c", fg="white").pack(pady=10)
+
+def abrir_instrucciones():
+    ventana_inst = tk.Toplevel(root)
+    ventana_inst.title("Cómo Jugar")
+    ventana_inst.geometry("450x350")
+    ventana_inst.config(bg="#121213")
+    
+    instrucciones = (
+        "INSTRUCCIONES\n\n"
+        "1. Adivina la palabra oculta en 6 intentos.\n"
+        "2. Cada intento debe ser una palabra de 5 letras.\n"
+        "3. Presiona ENTER para enviar.\n\n"
+        "COLORES:\n"
+        "VERDE: La letra está en la posición correcta.\n"
+        "AMARILLO: La letra está en la palabra pero en otra posición.\n"
+        "GRIS: La letra no forma parte de la palabra."
+    )
+    
+    tk.Label(ventana_inst, text=instrucciones, fg="white", bg="#121213", 
+             font=("Arial", 11), justify="left", padx=20, pady=20).pack()
+    
+    tk.Button(ventana_inst, text="Entendido", command=ventana_inst.destroy, bg="#6aaa64", fg="white").pack(pady=10)
+
+# ==================================================
 # LOGIN
 # ==================================================
 frame_login = tk.Frame(root, bg="#121213")
@@ -71,15 +118,6 @@ entry_user.pack(pady=5)
 tk.Label(frame_login, text="Password", fg="white", bg="#121213").pack()
 entry_pass = tk.Entry(frame_login, width=25, show="*", font=("Arial", 12))
 entry_pass.pack(pady=5)
-
-estado = tk.Label(
-    root,
-    text="Heidi Meiners Muñoz \n Valeria Pérez Maciel \n Fátima Wall Fernández \n \n Profesor: Juan Carlos López Pimentel \n Materia: Computo Distribuido \n 6to Semestre ISGC",
-    fg="white",
-    bg="#121213",
-    font=("Arial", 14, "bold")
-)
-estado.pack()
 
 # ==================================================
 # GAME
@@ -353,7 +391,7 @@ tk.Button(
     bg="green",
     fg="white",
     command=lambda: autenticar("login")
-).pack(pady=5)
+).pack(pady=10)
 
 tk.Button(
     frame_login,
@@ -362,7 +400,25 @@ tk.Button(
     bg="blue",
     fg="white",
     command=lambda: autenticar("register")
-).pack(pady=5)
+).pack(pady=10)
+
+tk.Button(
+    frame_login,
+    text="INSTRUCCIONES",
+    width=20,
+    bg="#3a3a3c",
+    fg="white",
+    command=abrir_instrucciones
+).pack(pady=(30, 10))
+
+tk.Button(
+    frame_login,
+    text="INFORMACIÓN",
+    width=20,
+    bg="#3a3a3c",
+    fg="white",
+    command=abrir_informacion
+).pack(pady=10)
 
 # ==================================================
 # START
