@@ -165,6 +165,15 @@ mensaje_final = tk.Label(
 )
 mensaje_final.pack(pady=10)
 
+estado = tk.Label(
+    frame_game, 
+    text="Wins: 0", 
+    fg="white", 
+    bg="#121213", 
+    font=("Arial", 14)
+)
+estado.pack(pady=5)
+
 fila_actual = 0
 palabra_actual = ""
 palabra_lista = tk.StringVar()
