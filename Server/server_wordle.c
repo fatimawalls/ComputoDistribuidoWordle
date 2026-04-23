@@ -7,7 +7,6 @@
 
 #include "helpers_json.h"
 
-// tu diccionario
 const char *palabra_random();
 
 #define PORT 5000
@@ -125,7 +124,6 @@ void jugar_partida(int client_sock, char *usuario) {
 
         char msg[128];
 
-        // 🔥 ÚLTIMO INTENTO = LOSE AUTOMÁTICO
         if (intentos == MAX_ATTEMPTS - 1) {
 
             if (strcmp(word, secreta) == 0) {
